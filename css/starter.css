@@ -1,0 +1,240 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 16pt; /* test for this! Make all sizes em or rem */
+    /*Change font to poppins, with serif as backup*/
+    font-family: 'Poppins', serif ,sans-serif;
+    /*Set the background image with a backup*/
+    background-image: url('concrete_seamless.png'), linear-gradient(#f1f1f1, #f1f1f1);
+  }
+  
+  header{
+    /*Display elements with flex vertically*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-bottom: 3px solid #50C7C7;
+    margin-bottom:20px
+  }
+  
+  h1{
+    font-size: 2em;
+    text-align: center;
+    line-height: 2;
+  }
+  
+  h2{
+    font-size: 1.5em;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  p {
+    padding: 0 30px;
+  }
+  
+  a.skip{
+    background: white;
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: -40px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+  }
+  
+  a.skip:focus{
+    top:20px;
+    color: black;
+    text-decoration-style: solid;
+  }
+  
+  *:focus{
+    border: 2px solid black;
+  }
+
+  .nav_links{
+    /*Display the nav links vertically*/
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav_item a{
+    padding: 10px;
+  }
+  /*If the item has been visited leave the color alone*/
+  .nav_item a:visited{
+    color: #3366CC;
+  }
+
+  .nav_item a:hover, a:focus{
+    color: #50C7C7;
+    text-decoration: underline;
+    -webkit-text-decoration-style: dotted;
+            text-decoration-style: dotted;
+  }
+  .nav_item a:visited a:hover{
+    color:#50C7C7;
+  }
+ 
+  .pricing{
+    min-height: 475px;
+    display: flex;
+    flex-direction: column;
+  }
+ /*Adding styling to match the example*/
+  .card {
+    margin: 12px;
+    background: #fff;
+    border-radius: 7px;
+    padding: 0 0 25px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    /*Inital Size of 450px*/
+    flex: 1 0 450px;
+  }
+
+  .card > ul{
+    list-style: none;
+    padding-left: 5px;
+  }
+  
+  .card > ul li {
+    width: 90%;
+    margin: 20px auto;
+    
+  }
+  /*Header elements that are direct children of card styling*/
+  .card > header{
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+.card button{
+    width: 90%;
+    height: 40px;
+    border: 0;
+    margin-left: 5%;
+    border-radius: 7px;
+    background: #288080;
+    color: white;
+    font-size: 1em;
+  }
+  
+  .card h3{
+    font-size: 4em;
+    color: white;
+    text-align: center;
+  }
+  .gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+  }
+  footer{
+    background-color: black;
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+ /*Animation for the logo*/ 
+ @keyframes logoAnimation{
+  0% {
+    width: 25px;
+    opacity: 0;
+  }
+  100% {
+    width: 475px;
+    opacity: 1;
+  }
+ }
+/*Setting up initial state for logo and its animation*/
+ .logo {
+  width: 25px;
+  opacity: 0;
+  animation: logoAnimation 5s ease forwards;
+ }
+
+@media screen and (min-width: 900px){
+  header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  .nav_links{
+    flex-direction: row;
+  }
+  .pricing{
+    display: flex;
+    justify-content: center;
+  }
+  .card{
+    flex: 0 0 275px;
+  }
+}
+/*Reduced motion removes animation on logo*/
+@media (prefers-reduced-motion){
+  .logo {
+    animation: none; 
+  }
+}
+
+@media print and (orientation: portrait){
+  body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: none;
+    background-color: #f1f1f1;
+  }
+  .nav_links{
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .nav_item{
+    margin-left: 20px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  .pricing{
+    display: flex;
+    justify-content: center;
+  }
+  .card li:nth-child(2)::after{
+    content: "\1F44D";
+    color: #FFD700;
+  }
+  .card{
+    border: solid 2px #45ADDD;
+    flex-basis: 325px;
+  }
+  .gallery{
+    display: none;
+  }
+  #gallery{
+    display: none;
+  }
+  nav{
+    width: 100%;
+  }
+  header{
+    display: flex;
+    width: 100%;
+  }
+}
